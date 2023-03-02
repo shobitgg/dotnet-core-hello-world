@@ -17,7 +17,7 @@ stages:
     jobs:
       - job:
         pool:
-          vmImage: ‘windows-latest’
+          vmImage: windows-latest
         steps:
         - task: UseDotNet@2
           displayName: ‘Install .NET Core SDK’
@@ -59,7 +59,7 @@ stages:
     jobs:
     - job:
       pool:
-        vmImage: ‘ubuntu-latest’
+        vmImage: ubuntu-latest
       
       
       steps:               
