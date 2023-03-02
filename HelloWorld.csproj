@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <DebugType>portable</DebugType>
-    <AssemblyName>dotnet-core-hello-world</AssemblyName>
+    <AssemblyName>HelloWorld</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>dotnet-core-hello-world</PackageId>
+    <PackageId>HelloWorld</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
