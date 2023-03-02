@@ -3,22 +3,21 @@
 trigger:
 - '*'
 
-pool:
-  name: Default
 
 variables:
 
   buildConfiguration: ‘Release’
 
 
-      
+
 stages:
+
   - stage: build
     displayName: Build
     jobs:
       - job:
         pool:
-          name: Default
+          vmImage: ‘windows-latest’
         steps:
         - task: UseDotNet@2
           displayName: ‘Install .NET Core SDK’
