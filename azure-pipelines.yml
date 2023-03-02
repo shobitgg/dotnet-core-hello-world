@@ -3,6 +3,8 @@
 trigger:
 - '*'
 
+pool:
+  name: Default
 
 variables:
 
@@ -16,7 +18,7 @@ stages:
     jobs:
       - job:
         pool:
-          vmImage: ‘windows-latest’
+          name: Default
         steps:
         - task: UseDotNet@2
           displayName: ‘Install .NET Core SDK’
@@ -59,7 +61,7 @@ stages:
     - job:
       displayName: Release
       pool:
-        vmImage: 'ubuntu-latest'
+        name: Default
       
       
       steps:               
