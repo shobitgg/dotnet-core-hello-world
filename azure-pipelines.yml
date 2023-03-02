@@ -26,6 +26,10 @@ stages:
         #     version: '6.x'
         #     includePreviewVersions: true
         #     performMultiLevelLookup: true
+        - task: NuGetToolInstaller@1
+        - task: NuGetCommand@2
+          inputs:
+            restoreSolution: '$(solution)'
         - task: DotNetCoreCLI@1
           displayName: "Restore"
           inputs:
