@@ -1,5 +1,3 @@
-
-
 trigger:
 - '*'
 
@@ -35,13 +33,19 @@ stages:
           inputs:
             command: 'restore'
           
-#           Build dotnet project with Release configuration
-        - task: DotNetCoreCLI@1
-          displayName: Build
+# #           Build dotnet project with Release configuration
+#         - task: DotNetCoreCLI@1
+#           displayName: Build
+#           inputs:
+#             command: 'build'
+#             projects: 'HelloWorld.csproj'
+#             arguments: '‘–configuration $(buildConfiguration)’'
+        - task: VSBuild@1
           inputs:
-            command: 'build'
-            projects: 'HelloWorld.csproj'
-            arguments: '‘–configuration $(buildConfiguration)’'
+            solution: '$(solution)'
+            msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+            platform: '$(buildPlatform)'
+            configuration: '$(buildConfiguration)'
     #           Create directories for signed artifacts    
         - powershell: New-Item -ItemType Directory -Path ./artifacts
           displayName: ‘Created directories for artifacts’
